@@ -1,0 +1,72 @@
+.navbar{
+    background-color: #008E5D;
+    font-weight: bold;
+}
+.home-container{
+    background-color: #DBDEE0 ;
+    margin-top: 100px;
+    margin-left: 400px;
+    margin-right: 400px;
+}
+.card-container{
+    height: 500rem;
+    padding: 20px;
+}
+.home-header{
+    padding: 30px;
+}
+.button-add{
+    background-color: #008E5D;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    padding: 7px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.button-back{
+    background-color: #008E5D;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    padding: 7px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.search{
+    float: right;
+}
+.table-container{
+    text-align: center;
+}
+.table-container thead, .table-container tbody, .table-container tr, .table-container th, .table-container td{
+    border: 2px solid black;
+}
+.label-add-item{
+    font-weight: bold;
+}
+.input-data{
+    width: 300px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+.form-container{
+    border: 1px solid #DBDEE0;
+    padding: 20px;
+    margin-right: 700px;
+}
+.row-custom{
+    border: 1px solid #000;
+    width: 500px;
+    align-items: center;
+    align-self: center;
+}
