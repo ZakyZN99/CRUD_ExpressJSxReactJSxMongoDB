@@ -1,0 +1,43 @@
+[{
+  "_id": {
+    "$oid": "65e2de8d7b9015fde5356e48"
+  },
+  "name": "Laptop ROG",
+  "price": 30000000,
+  "stock": 5,
+  "status": true,
+  "image_url": "http://localhost:3000/upload/header.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e2deac7b9015fde5356e4b"
+  },
+  "name": "Laptop Asus",
+  "price": 4000000,
+  "stock": 42,
+  "status": true,
+  "image_url": "http://localhost:3000/upload/header.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e2dec77b9015fde5356e4d"
+  },
+  "name": "Laptop Axio",
+  "price": 8000000,
+  "stock": 1,
+  "status": true,
+  "image_url": "http://localhost:3000/upload/header.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65eb56c1fbc673b09aa6b1f8"
+  },
+  "name": "Laptop Macbook",
+  "price": 5000,
+  "stock": 2,
+  "status": true,
+  "__v": 0
+}]
