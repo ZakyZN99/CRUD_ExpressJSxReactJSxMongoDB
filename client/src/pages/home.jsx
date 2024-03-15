@@ -7,6 +7,11 @@ export const Home = () => {
   const [Products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
+  const currencyFormatIDR = new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR'
+  }) 
+
   //SHOW DATA
   useEffect(() => {
     const fetchItems = async () => {
@@ -85,7 +90,7 @@ export const Home = () => {
               <tr key={Product._id}>
                 <td>{index + 1}</td>
                 <td>{Product.name}</td>
-                <td>{Product.price}</td>
+                <td>{currencyFormatIDR.format(Product.price)}</td>
                 <td>{Product.stock}</td>
                 <td className="button-group">
                   <Link to={`/detail-items/${Product._id}`} className="btn btn-sm btn-info" onClick={() => detailItem(Product._id)}>Detail</Link><span> </span>

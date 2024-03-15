@@ -10,6 +10,7 @@
 }
 .card-container{
     height: 500rem;
+    width: 40rem;
     padding: 20px;
 }
 .home-header{
@@ -62,6 +63,7 @@
 .form-container{
     border: 1px solid #DBDEE0;
     padding: 20px;
+    width: 30rem;
     margin-right: 700px;
 }
 .row-custom{

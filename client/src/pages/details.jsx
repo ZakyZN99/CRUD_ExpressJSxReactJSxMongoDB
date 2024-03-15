@@ -9,6 +9,12 @@ export const Detail = () => {
 
   let navigate = useNavigate();
 
+  const currencyFormatIDR = new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR'
+  }) 
+
+  //GET DETAIL
   useEffect(() => {
     const fetchProduct = async () => {
       try {
@@ -48,7 +54,7 @@ export const Detail = () => {
         <Row className="row-custom">
           <Col>Harga</Col>
           <Col xs={"auto"}>:</Col>
-          <Col>Rp. {Product.price}</Col>
+          <Col> {currencyFormatIDR.format(Product.price)}</Col>
         </Row>
         <Row className="row-custom">
           <Col>Stock</Col>

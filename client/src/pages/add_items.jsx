@@ -22,18 +22,19 @@ export const AddItems = () => {
     const numericValue = value.replace(/\D/g, "");
     setHarga(numericValue);
   };
+
   const handleStockChange = (event) => {
     const value = event.target.value;
     const numericValue = value.replace(/\D/g, "");
     setStock(numericValue);
   };
-  const formatCurrency = (value) => {
-    const cleanValue = value.replace(/[^\d]/g, "").trim();
-    if (cleanValue === "") return "";
-    return parseFloat(cleanValue).toLocaleString("id-ID", {
+
+  const handleHargaBlur = () => {
+    const formattedValue = new Intl.NumberFormat("id-ID", {
       style: "currency",
       currency: "IDR",
-    });
+    }).format(harga);
+    setHarga(formattedValue);
   };
   
 
@@ -43,16 +44,14 @@ export const AddItems = () => {
     try {
       const response = await axios.post("/api/add-items", {
         name: inputValue.name,
-        price: harga,
+        price: parseInt(harga.split(',')[0].replace(/\D/g, ''), 10),
         stock: stock,
         status: inputValue.status,
       });
       itemsRoute();
       console.log("Response:", response.data);
-      // Handle success or update state accordingly
     } catch (error) {
       console.error("Error:", error);
-      // Handle error
     }
   };
 
@@ -95,7 +94,8 @@ export const AddItems = () => {
             placeholder="Stock..."
             className="input-data"
             value={inputValue.stock} 
-            onChange={handleStockChange} 
+            onChange={handleStockChange}
+            onBlur={handleHargaBlur}
         />
           <br />
           <input name="status" type="checkbox" value={false} 

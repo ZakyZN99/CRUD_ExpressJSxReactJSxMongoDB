@@ -12,14 +12,25 @@ export const EditItems = () => {
 
   const handleHargaChange = (event) => {
     const value = event.target.value;
-    const numericValue = value.replace(/\D/g, "");
+    const numericValue = value.split(',')[0].replace(/\D/g, '');
     setHarga(numericValue);
   };
+
   const handleStockChange = (event) => {
     const value = event.target.value;
     const numericValue = value.replace(/\D/g, "");
     setStock(numericValue);
   };
+
+  const handleHargaBlur = () => {
+    const formattedValue = new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(harga);
+    setHarga(formattedValue);
+  };
+
+  //Convert to IDR
   const formatCurrency = (value) => {
     const cleanValue = value.replace(/[^\d]/g, "").trim();
     if (cleanValue === "") return "";
@@ -28,12 +39,14 @@ export const EditItems = () => {
       currency: "IDR",
     });
   };
+
+  //SUBMIT
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.put(`/api/edit-items/${id}`, {
         name,
-        price: parseFloat(harga),
+        price: parseInt(harga.split(',')[0].replace(/\D/g, ''), 10),
         stock: parseInt(stock),
         status,
       });
@@ -43,13 +56,15 @@ export const EditItems = () => {
       console.error("Error editing item:", error);
     }
   };
+
+  //FETCH DATA
   useEffect(() => {
     const fetchItem = async () => {
       try {
         const response = await axios.get(`/api/detail-items/${id}`);
         const item = response.data;
         setName(item.name);
-        setHarga(item.price.toString());
+        setHarga(formatCurrency(item.price.toString()));
         setStock(item.stock.toString());
         setStatus(item.status);
       } catch (error) {
@@ -59,6 +74,7 @@ export const EditItems = () => {
     fetchItem();
   }, [id]);
 
+  //NAVIGATE
   let navigate = useNavigate();
   const  HomeRoute = () =>{
     let path = '/';
@@ -92,6 +108,7 @@ export const EditItems = () => {
             placeholder="Harga..."
             value={harga}
             onChange={handleHargaChange}
+            onBlur={handleHargaBlur}
             className="input-data"
           />
           <br />
